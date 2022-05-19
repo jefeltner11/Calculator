@@ -21,7 +21,7 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        Calculator calculator = new Calculator();
+        Calculations calculator = new Calculations();
         public MainWindow()
         {
             InitializeComponent();
@@ -30,13 +30,20 @@ namespace Calculator
 
         private void modulus_Click(object sender, RoutedEventArgs e)
         {
-
+            calculator.StoreTemp();
+            calculator.Operator = "%";
         }
 
 
         private void clearEntry_Click(object sender, RoutedEventArgs e)
         {
+            calculator.Display = 0;
+        }
 
+        private void clearAll_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Display = 0;
+            calculator.Temporary = 0;
         }
 
         private void seven_Click(object sender, RoutedEventArgs e)
@@ -84,6 +91,71 @@ namespace Calculator
             calculator.Concatenate(3);
         }
 
+        private void zero_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Concatenate(0);
+        }
 
+        private void equals_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Equals();
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.StoreTemp();
+            calculator.Operator = "+";
+        }
+
+        private void subtract_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.StoreTemp();
+            calculator.Operator = "-";
+        }
+
+        private void divide_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.StoreTemp();
+            calculator.Operator = "/";
+        }
+
+        private void multiply_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.StoreTemp();
+            calculator.Operator = "*";
+        }
+
+        private void backspace_Click(object sender, RoutedEventArgs e)
+        {
+            double remainder;
+            remainder = calculator.Display % 10;
+            calculator.Display -= remainder;
+            calculator.Display /= 10;
+        }
+
+        private void decimal_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Display = double.Parse(calculator.Display.ToString() + ".");
+        }
+
+        private void positiveNegative_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Display *= -1;
+        }
+
+        private void oneOver_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Display = 1 / calculator.Display;
+        }
+
+        private void squared_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Display *= calculator.Display;
+        }
+
+        private void squareRoot_Click(object sender, RoutedEventArgs e)
+        {
+            calculator.Display = Math.Sqrt(calculator.Display);
+        }
     }
 }

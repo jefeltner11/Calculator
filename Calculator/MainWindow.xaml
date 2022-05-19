@@ -12,6 +12,9 @@
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -32,10 +35,45 @@
             x:Name="modulus" Grid.Column="1" Grid.Row="2" 
             Margin="2" Content="%" Click="modulus_Click" />
 
+        <Button
+            x:Name="oneOver" Grid.Column="1" Grid.Row="3"
+            Margin="2" Content="1/x" Click="oneOver_Click" />
+
+        <Button
+            x:Name="squared" Grid.Column="2" Grid.Row="3"
+            Margin="2" Content="x^2" Click="squared_Click" />
+
+        <Button
+            x:Name="squareRoot" Grid.Column="3" Grid.Row="3"
+            Margin="2" Content="sqrt(x)" Click="squareRoot_Click" />
+
+        <Button
+            x:Name="divide" Grid.Column="4" Grid.Row="3"
+            Margin="2" Content="/" Click="divide_Click" />
+
+        <Button
+            x:Name="multiply" Grid.Column="4" Grid.Row="4"
+            Margin="2" Content="*" Click="multiply_Click" />
+
+        <Button
+            x:Name="subtract" Grid.Column="4" Grid.Row="5"
+            Margin="2" Content="-" Click="subtract_Click" />
+
+        <Button
+            x:Name="add" Grid.Column="4" Grid.Row="6"
+            Margin="2" Content="+" Click="add_Click" />
 
         <Button
             x:Name="clearEntry" Grid.Column="2" Grid.Row="2"
-            Margin="2" Content="0" Click="clearEntry_Click"/>
+            Margin="2" Content="CE" Click="clearEntry_Click"/>
+
+        <Button
+            x:Name="clearAll" Grid.Column="3" Grid.Row="2"
+            Margin="2" Content="C" Click="clearAll_Click" />
+
+        <Button
+            x:Name="backspace" Grid.Column="4" Grid.Row="2"
+            Margin="2" Content=" {-- " Click="backspace_Click" />
 
         <Button
             x:Name="seven" Grid.Column="1" Grid.Row="4"
@@ -72,6 +110,22 @@
         <Button
             x:Name="three" Grid.Column="3" Grid.Row="6"
             Margin="2" Content="3" Click="three_Click" />
+
+        <Button
+            x:Name="positiveNegative" Grid.Column="1" Grid.Row="7"
+            Margin="2" Content="+/-" Click="positiveNegative_Click" />
+
+        <Button
+            x:Name="zero" Grid.Column="2" Grid.Row="7"
+            Margin="2" Content="0" Click="zero_Click" />
+
+        <Button
+            x:Name="decimal" Grid.Column="3" Grid.Row="7"
+            Margin="2" Content="." Click="decimal_Click" />
+
+        <Button
+            x:Name="equals" Grid.Column="4" Grid.Row="7"
+            Margin="2" Content="=" Click="equals_Click" />
 
     </Grid>
 </Window>

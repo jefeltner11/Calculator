@@ -8,13 +8,13 @@ using System.Runtime.CompilerServices;
 
 namespace Calculator
 {
-    public class Calculator : INotifyPropertyChanged
+    public class Calculations : INotifyPropertyChanged
     {
 
-        private int _display = 0;
-        private int _temporary = 0;
+        private double _display = 0;
+        private double _temporary = 0;
         private string _operator = "";
-        public int Display
+        public double Display
         {
             get { return _display; }
             set
@@ -24,13 +24,13 @@ namespace Calculator
             }
         }
 
-        public int Temporary
+        public double Temporary
         {
             get { return _temporary; }
             set
             {
                 _temporary = value;
-                OnPropertyChanged("Display");
+                OnPropertyChanged("Temporary");
             }
         }
 
@@ -43,19 +43,37 @@ namespace Calculator
             }
         }
 
-        public void Concatenate(int lastDigit)
+        public void Concatenate(double lastDigit)
         {
-            Display = int.Parse(Display.ToString() + lastDigit.ToString());
+            Display = double.Parse(Display.ToString() + lastDigit.ToString()); 
         }
 
         public void StoreTemp()
         {
             Temporary = Display;
+            Display = 0;
         }
 
-        public void Modulus()
+        public void Equals()
         {
-            StoreTemp();
+            switch (Operator)
+            {
+                case "%":
+                    Display %= Temporary;
+                    break;
+                case "+":
+                    Display += Temporary;
+                    break;
+                case "-":
+                    Display = Temporary - Display;
+                    break;
+                case "*":
+                    Display *= Temporary;
+                    break;
+                case "/":
+                    Display = Temporary/Display;
+                    break;
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
