@@ -76,6 +76,11 @@ namespace Calculator
             }
         }
 
+        public void Modulus()
+        {
+            Display = Temporary * (Display/100);
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string name)
         {

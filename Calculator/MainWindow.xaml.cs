@@ -30,8 +30,7 @@ namespace Calculator
 
         private void modulus_Click(object sender, RoutedEventArgs e)
         {
-            calculator.StoreTemp();
-            calculator.Operator = "%";
+            calculator.Modulus();
         }
 
 
